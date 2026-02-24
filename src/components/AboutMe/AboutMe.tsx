@@ -14,8 +14,8 @@ const typewriterRules: TypewriterRule[] = [
 
 export default function AboutMe() {
     return (
-        <>
+        <div className={styles.aboutMe}>
             Hi, I'm <span className={styles.typewriterMyName}>{useTypewriter({rules: typewriterRules, loopFrom: 1})}</span>
-        </>
+        </div>
     )
 }

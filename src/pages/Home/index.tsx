@@ -1,7 +1,9 @@
+import styles from './Home.module.css'
+
 export default function Home() {
     return (
-        <>
-            <p>text</p>
-        </>
+        <div className={styles.home}>
+            <p>text goes here!</p>
+        </div>
     )
 }
