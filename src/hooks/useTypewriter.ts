@@ -1,65 +1,75 @@
-import { useEffect, useRef, useState } from "react";
-import type { Typewriter } from "../types";
+'use client'
 
-export default function useTypewriter({ rules, delay = 100, cooldown = 1000, loopFrom }: Typewriter) {
-    const [text, setText] = useState('')
-    const textRef = useRef('')
-    const ruleIndexRef = useRef(0)
-    const charIndexRef = useRef(0)
+import { useEffect, useRef, useState } from 'react'
+import type { Typewriter } from '@/types/typewriter'
 
-    useEffect(() => {
-        if (!rules.length) return
+export default function useTypewriter({
+	rules,
+	delay = 100,
+	cooldown = 1000,
+	loopFrom,
+}: Typewriter) {
+	const [text, setText] = useState('')
+	const textRef = useRef('')
+	const ruleIndexRef = useRef(0)
+	const charIndexRef = useRef(0)
 
-        let timerId: ReturnType<typeof setTimeout>
+	useEffect(() => {
+		if (!rules.length) return
 
-        const finishRule = (nextDelay: number) => {
-            charIndexRef.current = 0
-            const advanced = advanceRule()
-            if (advanced) {
-                timerId = setTimeout(tick, nextDelay)
-            }
-        }
+		let timerId: ReturnType<typeof setTimeout>
 
-        const tick = () => {
-            const rule = rules[ruleIndexRef.current]
+		const finishRule = (nextDelay: number) => {
+			charIndexRef.current = 0
+			const advanced = advanceRule()
+			if (advanced) {
+				timerId = setTimeout(tick, nextDelay)
+			}
+		}
 
-            if ('write' in rule) {
-                if (charIndexRef.current < rule.write.length) {
-                    textRef.current += rule.write[charIndexRef.current]
-                    setText(textRef.current)
-                    charIndexRef.current++
-                    timerId = setTimeout(tick, delay)
-                } else {
-                    finishRule(cooldown)
-                }
-            } else if ('delete' in rule) {
-                if (charIndexRef.current < rule.delete && textRef.current.length > 0) {
-                    textRef.current = textRef.current.slice(0, -1)
-                    setText(textRef.current)
-                    charIndexRef.current++
-                    timerId = setTimeout(tick, delay)
-                } else {
-                    finishRule(delay)
-                }
-            }
-        }
+		const tick = () => {
+			const rule = rules[ruleIndexRef.current]
 
-        const advanceRule = (): boolean => {
-            if (ruleIndexRef.current + 1 >= rules.length) {
-                if (loopFrom !== undefined) {
-                    ruleIndexRef.current = loopFrom
-                    return true
-                }
-                return false
-            }
-            ruleIndexRef.current++
-            return true
-        }
+			if ('write' in rule) {
+				if (charIndexRef.current < rule.write.length) {
+					textRef.current += rule.write[charIndexRef.current]
+					setText(textRef.current)
+					charIndexRef.current++
+					timerId = setTimeout(tick, delay)
+				} else {
+					finishRule(cooldown)
+				}
+			} else if ('delete' in rule) {
+				if (
+					charIndexRef.current < rule.delete &&
+					textRef.current.length > 0
+				) {
+					textRef.current = textRef.current.slice(0, -1)
+					setText(textRef.current)
+					charIndexRef.current++
+					timerId = setTimeout(tick, delay)
+				} else {
+					finishRule(delay)
+				}
+			}
+		}
 
-        timerId = setTimeout(tick, delay)
+		const advanceRule = (): boolean => {
+			if (ruleIndexRef.current + 1 >= rules.length) {
+				if (loopFrom !== undefined) {
+					ruleIndexRef.current = loopFrom
+					return true
+				}
+				return false
+			}
+			ruleIndexRef.current++
+			return true
+		}
 
-        return () => clearTimeout(timerId)
-    }, [rules, delay, cooldown, loopFrom])
+		timerId = setTimeout(tick, delay)
 
-    return text
+		return () => clearTimeout(timerId)
+	}, [rules, delay, cooldown, loopFrom])
+
+	return text
 }
