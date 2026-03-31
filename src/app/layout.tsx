@@ -5,6 +5,7 @@ import Window from '@/components/Window/Window'
 import layoutStyles from './layout.module.css'
 import './globals.css'
 import clsx from 'clsx'
+import Maintenance from './maintenance/page'
 
 const trispace = Trispace({
     variable: '--font-trispace',
@@ -21,21 +22,30 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
+    const isMaintenanceMode = process.env.MAINTENANCE_MODE === 'true'
+
     return (
         <html lang="en" className={trispace.variable}>
             <body>
-                <main className={layoutStyles.main}>
-                    <aside
-                        className={clsx(layoutStyles.aboutMeContainer, layoutStyles.windowContainer)}
-                    >
-                        <Window title="About me">
-                            <AboutMe />
-                        </Window>
-                    </aside>
-                    <section className={layoutStyles.windowContainer}>
-                        {children}
-                    </section>
-                </main>
+                {isMaintenanceMode ? (
+                    <Maintenance />
+                ) : (
+                    <main className={layoutStyles.main}>
+                        <aside
+                            className={clsx(
+                                layoutStyles.aboutMeContainer,
+                                layoutStyles.windowContainer,
+                            )}
+                        >
+                            <Window title="About me">
+                                <AboutMe />
+                            </Window>
+                        </aside>
+                        <section className={layoutStyles.windowContainer}>
+                            {children}
+                        </section>
+                    </main>
+                )}
             </body>
         </html>
     )
