@@ -20,7 +20,7 @@
     flex-shrink: 2;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 727px) {
     .main {
         flex-direction: column;
     }

@@ -4,6 +4,7 @@ import AboutMe from '@/components/AboutMe/AboutMe'
 import Window from '@/components/Window/Window'
 import layoutStyles from './layout.module.css'
 import './globals.css'
+import clsx from 'clsx'
 
 const trispace = Trispace({
     variable: '--font-trispace',
@@ -23,15 +24,17 @@ export default function RootLayout({
     return (
         <html lang="en" className={trispace.variable}>
             <body>
-                <aside className={layoutStyles.aboutMeContainer}>
-                    <Window title="About me">
-                        <AboutMe />
-                    </Window>
-                </aside>
                 <main className={layoutStyles.main}>
-                    <div className={layoutStyles.windowContainer}>
+                    <aside
+                        className={clsx(layoutStyles.aboutMeContainer, layoutStyles.windowContainer)}
+                    >
+                        <Window title="About me">
+                            <AboutMe />
+                        </Window>
+                    </aside>
+                    <section className={layoutStyles.windowContainer}>
                         {children}
-                    </div>
+                    </section>
                 </main>
             </body>
         </html>
