@@ -6,6 +6,7 @@ import layoutStyles from './layout.module.css'
 import './globals.css'
 import clsx from 'clsx'
 import Maintenance from './maintenance/page'
+import NavBar from '@/components/NavBar/NavBar'
 
 const trispace = Trispace({
     variable: '--font-trispace',
@@ -24,28 +25,35 @@ export default function RootLayout({
 }>) {
     const isMaintenanceMode = process.env.MAINTENANCE_MODE === 'true'
 
+    if (isMaintenanceMode) {
+        return (
+            <html lang="en" className={trispace.variable}>
+                <body>
+                    <Maintenance />
+                </body>
+            </html>
+        )
+    }
+
     return (
         <html lang="en" className={trispace.variable}>
             <body>
-                {isMaintenanceMode ? (
-                    <Maintenance />
-                ) : (
-                    <main className={layoutStyles.main}>
-                        <aside
-                            className={clsx(
-                                layoutStyles.aboutMeContainer,
-                                layoutStyles.windowContainer,
-                            )}
-                        >
-                            <Window title="About me">
-                                <AboutMe />
-                            </Window>
-                        </aside>
-                        <section className={layoutStyles.windowContainer}>
-                            {children}
-                        </section>
-                    </main>
-                )}
+                <main className={layoutStyles.main}>
+                    <aside
+                        className={clsx(
+                            layoutStyles.aboutMeContainer,
+                            layoutStyles.windowContainer,
+                        )}
+                    >
+                        <Window title="About Me">
+                            <AboutMe />
+                        </Window>
+                    </aside>
+                    <section className={layoutStyles.windowContainer}>
+                        {children}
+                    </section>
+                </main>
+                <NavBar />
             </body>
         </html>
     )

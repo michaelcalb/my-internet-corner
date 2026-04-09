@@ -1,4 +1,7 @@
 :root {
+	--default-spacing: 1.5rem;
+	--default-cubic-bezier: cubic-bezier(0.32, 0.08, 0.00, 1.00);
+	--default-transition: all .2s var(--default-cubic-bezier);
 }
 
 * {
@@ -12,5 +15,7 @@ html,
 body {
 	width: 100vw;
 	height: 100vh;
+	display: flex;
+	flex-direction: column;
 	overflow: hidden;
 }
