@@ -7,7 +7,7 @@
     align-items: center;
     margin-bottom: var(--default-spacing);
     animation: slideUp 1s var(--default-cubic-bezier) 1s both;
-    transition: var(--default-transition);
+    transition: var(--default-transition) .1s;
 }
 
 .navList {
@@ -15,70 +15,106 @@
     display: flex;
     height: 100%;
     align-items: center;
-    background-color: rgb(219, 219, 219);
+    justify-content: space-evenly;
+    background-color: rgb(8, 8, 8);
     border-radius: 20px;
     corner-shape: squircle;
     padding: 0 var(--default-spacing);
     gap: var(--default-spacing);
+    transition: var(--default-transition) .1s;
 }
 
-.navItem {
+.navLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navContent {
     position: relative;
-    color: black;
+    color: rgb(197, 197, 197);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0.5rem;
-    transition: var(--default-transition);
     border: 1px solid transparent;
-    border-radius: 50px;
-}
-
-.navLink:hover .navItem {
-    transform: translateY(-40%) scale(1.1);
-    transition: var(--default-transition);
-    background-color: rgb(219, 219, 219);
-    border-style: squircle;
     border-radius: 10px;
-    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    border-style: squircle;
+    transition: var(--default-transition);
 }
 
-.navItem::after {
-    content: attr(aria-label);
+.navLink:hover .navContent {
+    transform: translateY(-20%);
+    background-color: rgb(37, 37, 37);
+    transition: var(--default-transition);
+}
+
+.navContent::after {
+    content: attr(data-tooltip);
     position: absolute;
     bottom: 120%;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: var(--default-transition);
     transform: scale(0.5);
+    transition: var(--default-transition), bottom .2s var(--default-cubic-bezier) .2s;
+    font-size: .9rem;
+    color: rgb(219, 219, 219);
 }
 
-.navLink:hover .navItem::after {
+.navLink:hover .navContent::after {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     .navBar {
         position: static;
         margin-bottom: 0;
+        transition: var(--default-transition) .1s;
     }
 
-    /* .navItem::after {
-        bottom: 0;
-        opacity: 1;
-        visibility: visible;
-        transform: scale(1);
-    } */
+    .navList {
+        flex: 1;
+        border-radius: 0;
+        corner-shape: none;
+        transition: var(--default-transition) .1s;
+    }
 }
 
 @keyframes slideUp {
-    from {
+    0% {
         transform: translateY(calc(100% + var(--default-spacing)));
+        opacity: 0;
     }
-    to {
+    50% {
+        transform: translateY(-10%);
+    }
+    100% {
         transform: translateY(0);
+        opacity: 1;
     }
+}
+
+.secretItem {
+    animation: popIn .5s var(--default-cubic-bezier) both;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.active .navContent {
+    background-color: rgb(20, 20, 20);
 }

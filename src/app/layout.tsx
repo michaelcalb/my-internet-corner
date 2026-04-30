@@ -1,12 +1,6 @@
 import type { Metadata } from 'next'
 import { Trispace } from 'next/font/google'
-import AboutMe from '@/components/AboutMe/AboutMe'
-import Window from '@/components/Window/Window'
-import layoutStyles from './layout.module.css'
 import './globals.css'
-import clsx from 'clsx'
-import Maintenance from './maintenance/page'
-import NavBar from '@/components/NavBar/NavBar'
 
 const trispace = Trispace({
     variable: '--font-trispace',
@@ -23,37 +17,32 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
-    const isMaintenanceMode = process.env.MAINTENANCE_MODE === 'true'
-
-    if (isMaintenanceMode) {
-        return (
-            <html lang="en" className={trispace.variable}>
-                <body>
-                    <Maintenance />
-                </body>
-            </html>
-        )
-    }
-
     return (
         <html lang="en" className={trispace.variable}>
+            <head>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            (function() {
+                                window.addEventListener('pageshow', function(event) {
+                                    var navEntries = performance.getEntriesByType('navigation')
+                                    var isBackForward = navEntries.length > 0 && navEntries[0].type === 'back_forward'
+                                    
+                                    if (event.persisted || isBackForward) {
+                                        var f = String.fromCharCode(123, 114, 101, 108, 48, 97, 100, 95, 49, 110, 116, 101, 114, 99, 51, 112, 116, 111, 114, 125);
+
+                                        document.body.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100vh; font-family: var(--font-trispace); opacity: 0; pointer-events: none;">' + f + '</div>';
+                                        
+                                        window.location.reload()
+                                    }
+                                });
+                            })();
+                        `,
+                    }}
+                />
+            </head>
             <body>
-                <main className={layoutStyles.main}>
-                    <aside
-                        className={clsx(
-                            layoutStyles.aboutMeContainer,
-                            layoutStyles.windowContainer,
-                        )}
-                    >
-                        <Window title="About Me">
-                            <AboutMe />
-                        </Window>
-                    </aside>
-                    <section className={layoutStyles.windowContainer}>
-                        {children}
-                    </section>
-                </main>
-                <NavBar />
+                {children}
             </body>
         </html>
     )

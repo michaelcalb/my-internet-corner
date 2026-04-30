@@ -1,0 +1,178 @@
+.contact {
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contactSection {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contactItem {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideInFromLeft 1s var(--default-cubic-bezier) forwards;
+    animation-delay: calc(var(--i) * .1s);
+}
+
+.contactLink {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    text-decoration: none;
+    background-color: rgb(7, 7, 7);
+    border: 2px solid transparent;
+    color: #b8b8b8;
+    border-radius: 5px;
+    padding: 1rem;
+    overflow: hidden;
+    width: fit-content;
+    transition: var(--default-transition);
+}
+
+.label {
+    z-index: 2;
+    font-weight: 500;
+}
+
+.mailDomain {
+    font-style: italic;
+    opacity: .5;
+    font-weight: normal;
+}
+
+.icon {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    top: 0;
+    left: -15px;
+    color: rgb(20, 20, 20);
+    transition: var(--default-transition);
+    z-index: 1;
+}
+
+.contactActions {
+    display: flex;
+    gap: .5rem;
+}
+
+.copyBtn {
+    position: relative;
+    border: none;
+    background-color: transparent;
+    color: rgb(200, 200, 200);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.btnIcon {
+    transition: var(--default-transition);
+}
+
+.inactiveIcon {
+    position: absolute;
+    opacity: 0;
+    scale: 0;
+    filter: blur(5px);
+}
+
+.contactLink:hover .icon {
+    left: 0;
+    transform: rotate(-15deg) scale(1.1);
+    transition: var(--default-transition);
+}
+
+.contactLink:hover {
+    border: 2px solid rgb(155, 155, 155);
+}
+
+.contactLink:hover .discordIcon {
+    color: rgb(40, 40, 80);
+}
+
+.contactLink:hover .emailIcon {
+    color: rgb(40, 40, 40);
+}
+
+.socialSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border-top: 1px solid rgb(50, 50, 50);
+    opacity: 0;
+    transform: translateY(200%);
+    animation: slideInFromBottom 1s var(--default-cubic-bezier) .5s forwards;
+}
+
+.socialText {
+    align-self: center;
+    margin: -10px;
+    background-color: #141414;
+    padding: 0 1rem;
+}
+
+.socialCardGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.socialLink {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #b8b8b8;
+    background-color: rgb(7, 7, 7);
+    padding: .5rem;
+    border-radius: .5rem;
+    opacity: 0;
+    scale: 0;
+    transition: var(--default-transition);
+    animation: popIn .5s var(--default-cubic-bezier) forwards;
+    animation-delay: calc(var(--i) * .1s + 1s);
+}
+
+.cardIcon {
+    height: 2rem;
+    width: auto;
+    transition: var(--default-transition);
+}
+
+.socialLink:hover {
+    transform: scale(1.2);
+}
+
+@keyframes slideInFromBottom {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

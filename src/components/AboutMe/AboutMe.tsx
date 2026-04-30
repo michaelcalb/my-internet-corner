@@ -1,9 +1,17 @@
 'use client'
 
 import styles from './AboutMe.module.css'
-
 import type { TypewriterRule } from '@/types/typewriter'
 import useTypewriter from '@/hooks/useTypewriter'
+import Window from '../Window/Window'
+import { useEffect, useState } from 'react'
+import SecretInput from '../SecretInput/SecretInput'
+import { useTimezoneDiff } from '@/hooks/useTimezoneDiff'
+import { usePresence } from '@/contexts/LanyardContext'
+import clsx from 'clsx'
+import SpotifyPlayer from '../SpotifyPlayer/SpotifyPlayer'
+import { Disc3, Gamepad2, GlobeOff, Monitor, Smartphone } from 'lucide-react'
+import { SpotifyStatus } from '@/types/spotifyStatus'
 
 const typewriterRules: TypewriterRule[] = [
 	{ write: 'Michas' },
@@ -14,60 +22,65 @@ const typewriterRules: TypewriterRule[] = [
 	{ write: 's' },
 ]
 
-export default function AboutMe() {
-	const email = 'michaelcalb.dev@gmail.com'
-	let currYear = new Date().getFullYear()
+const iconSize = 18
 
+function getAge() {
+	let currYear = new Date().getFullYear()
 	if (new Date().getMonth() < 9 || (new Date().getMonth() === 9 && new Date().getDate() < 5)) {
 		currYear -= 1
 	}
+	
+	return currYear - 2005
+}
+
+export default function AboutMe() {
+	const name = useTypewriter({ rules: typewriterRules, loopFrom: 1 })
+	const [age, setAge] = useState<number | null>(null)
+	const timezone = useTimezoneDiff()
+	
+	const status = usePresence()
+
+	useEffect(() => {
+		setAge(getAge())
+	}, [])
+
+	const discordStatus = status?.discord_status
+	const gameActivity = status?.activities.find(
+		(activity) => activity.type === 0
+	)
+	const spotifyStatus: SpotifyStatus | null = status?.listening_to_spotify ? status?.spotify : null
+	
+	const currentStatus: string | undefined = discordStatus === 'dnd' ? 'busy' : discordStatus
+
+	const presenceIcon = status?.active_on_discord_desktop ? <Monitor size={iconSize} /> : status?.active_on_discord_mobile ? <Smartphone size={iconSize} /> : <GlobeOff size={iconSize} />
 
 	return (
-		<div className={styles.aboutMe}>
-			<section className={styles.greeting}>
-				Hi, I&apos;m{' '}
-				<span className={styles.typewriterMyName}>
-					{useTypewriter({ rules: typewriterRules, loopFrom: 1 })}
-				</span>
-			</section>
-			<section className={styles.bio}>
-				<span className={styles.bioText}>
-					A {currYear - 2005}yo software developer from Brazil with a focus on full stack web development and cybersecurity. I sometimes participate in CTF events and puzzle hunts. Always learning new stuff, passionate about sharing knowledge.
-				</span>
-			</section>
-			<section className={styles.social}>
-				<a
-					href='https://github.com/michaelcalb'
-					target='_blank'
-					rel='noopener noreferrer'
-				>
-					<svg
-						viewBox='0 0 24 24'
-						className={styles.socialIcon}
-					>
-						<path
-							d='M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58 0-.28-.01-1.02-.02-2-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77 -1.1-.75.08-.74.08-.74 1.22.09 1.86 1.25 1.86 1.25 1.08 1.85 2.83 1.32 3.52 1 .1-.78.42-1.32.76-1.62-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.9 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.88-.01 3.27 0 .32.22.69.82.57C20.56 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z'
-							fill='currentColor'
-						/>
-					</svg>
-				</a>
-				<a
-					href={`mailto:${email}`}
-					onClick={() => {
-						void navigator.clipboard.writeText(email)
-					}}
-				>
-					<svg
-						viewBox='0 0 24 24'
-						className={styles.socialIcon}
-					>
-						<path
-							d='M22,5V9L12,13,2,9V5A1,1,0,0,1,3,4H21A1,1,0,0,1,22,5ZM2,11.154V19a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V11.154l-10,4Z'
-							fill='currentColor'
-						/>
-					</svg>
-				</a>
-			</section>
-		</div>
+		<Window title='About Me' >
+			<div className={styles.aboutMe}>
+				<section className={styles.bio}>
+					<h2 className={styles.bioTitle}>
+						Hi, I&apos;m {name}
+					</h2>
+					<div className={styles.bioBox}>
+						<p>I'm a {age}-year-old software developer from Brazil, focused on full stack web development and cybersecurity.</p>
+						<p>I enjoy math and problem-solving, which led me to  competitive programming.
+						I also participate in <SecretInput input='CTF' />s, puzzle hunts, and other events.</p>
+						<p className={styles.timezone}>{timezone}</p>
+					</div>
+				</section>
+				<section className={clsx(styles.status, !status && styles.inactive, spotifyStatus && styles.showSpotify)}>
+					<div className={styles.statusCardGroup}>
+						<span className={clsx(styles.statusCard, styles.presenceCard, styles[currentStatus || ''])}>{presenceIcon}{currentStatus}</span>
+						{gameActivity &&
+							<span className={clsx(styles.statusCard, styles.activityCard)}><Gamepad2 size={iconSize} className={styles.statusIcon}/><span className={styles.currentActivity}>{gameActivity.name}</span></span>
+						}
+					</div>
+					<div className={clsx(styles.spotifyBox, spotifyStatus && styles.showSpotify)}>
+						<span className={clsx(styles.statusCard, styles.boxIndicator)}><Disc3 size={iconSize}/>Listening to</span>
+						<SpotifyPlayer spotifyStatus={spotifyStatus} />
+					</div>
+				</section>
+			</div>
+		</Window>
 	)
 }

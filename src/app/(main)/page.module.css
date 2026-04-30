@@ -1,0 +1,66 @@
+.home {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    mask-image: linear-gradient(to bottom, black 40%, transparent 60%);
+    mask-size: 100% 240%;
+    mask-position: 0 100%;
+    animation: reveal 1.5s ease-out forwards .5s;
+}
+
+.title {
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+.terminal {
+    background-color: rgb(0, 0, 0);
+    color: rgb(219, 219, 219);
+    padding: 1rem;
+    border-radius: .2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    flex-grow: 1;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.terminal::-webkit-scrollbar {
+    display: none;
+}
+
+.terminal::selection {
+    background-color: rgb(230, 230, 230);
+    color: rgb(0, 0, 0);
+}
+
+.terminalLine {
+    display: flex;
+}
+
+.warning {
+    color: rgb(185, 185, 73);
+}
+
+.note {
+    color: rgb(140, 172, 231);
+}
+
+.editableArea {
+    flex-grow: 1;
+    outline: none;
+    font-family: inherit;
+    color: inherit;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    min-width: 0;
+    word-break: break-all;
+}
+
+@keyframes reveal {
+    to {
+        mask-position: 0 0;
+    }
+}

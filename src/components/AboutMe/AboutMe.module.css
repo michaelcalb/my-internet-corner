@@ -1,49 +1,170 @@
-.socialIcon {
-    width: 25px;
-    color: black;
-}
-
-.emailPopoverWrapper {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-}
-
-.emailIconButton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-}
-
-.emailPopover {
-    position: absolute;
-    left: 50%;
-    bottom: calc(100% + 8px);
-    transform: translateX(-50%) translateY(4px) scale(0.98);
+.aboutMe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 1rem;
     opacity: 0;
-    pointer-events: none;
-    border: 1px solid black;
-    background: white;
-    color: black;
-    padding: 6px 10px;
-    border-radius: 10px;
-    font-size: 0.78rem;
-    line-height: 1.2;
-    white-space: nowrap;
-    cursor: pointer;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    transition:
-        opacity 160ms ease,
-        transform 160ms ease;
+    animation: fadeIn 1s ease-out forwards .2s;
 }
 
-.emailPopoverWrapper:hover .emailPopover,
-.emailPopoverWrapper:focus-within .emailPopover {
+.bio {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bioTitle {
+    font-weight: normal;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.bioBox {
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    font-size: .9rem;
+    line-height: 1.2rem;
+    font-weight: 300;
+}
+
+.timezone {
+    text-align: end;
+}
+
+.status {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 0;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    padding: .5rem;
+
+    transition: 
+        opacity .5s var(--default-cubic-bezier),
+        flex-grow .5s var(--default-cubic-bezier) .5s,
+        gap .5s var(--default-cubic-bezier) .5s;
+}
+
+.status.showSpotify {
+    transition:
+        opacity .5s var(--default-cubic-bezier),
+        flex-grow .5s var(--default-cubic-bezier),
+}
+
+.statusCardGroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.statusCard {
+    display: flex;
+    gap: .3rem;
+    border-radius: .2rem;
+    padding: .2rem .4rem;
+    background-color: var(--bg-color);
+}
+
+.presenceCard {
+    border: 1px solid transparent;
+}
+
+.online {
+    color: rgb(100, 200, 100);
+    border-color: rgb(100, 200, 100);
+}
+
+.busy {
+    color: rgb(200, 100, 100);
+    border-color: rgb(200, 100, 100);
+}
+
+.idle {
+    color: rgb(200, 200, 100);
+    border-color: rgb(200, 200, 100);
+}
+
+.offline {
+    color: rgb(150, 150, 150);
+    border-color: rgb(150, 150, 150);
+}
+
+.activityCard {
+    color: rgb(155, 155, 255);
+    border: 1px solid rgb(155, 155, 255);
+    min-width: 0;
+    overflow: hidden;
+}
+
+.statusIcon {
+    flex-shrink: 0;
+}
+
+.currentActivity {
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+.spotifyBox {
+    max-height: 0;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    pointer-events: none;
+    transform: scale(.5);
+    filter: blur(10px);
+    transition:
+    opacity .5s var(--default-cubic-bezier),
+    transform .5s var(--default-cubic-bezier),
+    filter .5s var(--default-cubic-bezier),
+    margin-top 1s var(--default-cubic-bezier) .5s,
+    max-height 1s var(--default-cubic-bezier) .5s;
+}
+
+.spotifyBox.showSpotify {
+    max-height: 200px;
     opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
     pointer-events: auto;
+    transform: scale(1);
+    filter: blur(0);
+    margin-top: 1rem;
+    transition:
+        opacity .5s var(--default-cubic-bezier) 1s,
+        transform .5s var(--default-cubic-bezier) 1s,
+        filter .5s var(--default-cubic-bezier) 1s,
+        margin-top 1s var(--default-cubic-bezier) .5s,
+        max-height 1s var(--default-cubic-bezier) .5s;
+}
+
+.boxIndicator {
+    color: rgb(55, 200, 100);
+    border: 1px solid rgb(55, 200, 100);
+    width: fit-content;
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+    border-bottom: none;
+    margin-bottom: -1px;
+    background-color: var(--bg-color);
+    position: relative;
+    z-index: 1;
+}
+
+.status.inactive {
+    opacity: 0;
+    transition: opacity .5s var(--default-cubic-bezier);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
