@@ -53,7 +53,7 @@ const nextConfig: NextConfig = {
                 {
                     source: '/',
                     has: [{ type: 'host', value: 'docs.michas.dev' }],
-                    destination: 'https://michaelcalb.github.io/docs/'
+                    destination: '/docs'
                 }
             ],
             fallback: [
