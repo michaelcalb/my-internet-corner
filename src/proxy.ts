@@ -2,11 +2,13 @@ import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 
 export function proxy(request: NextRequest) {
-    
+    const hostname = request.headers.get('host');
+    const isDocsSubdomain = hostname === 'docs.michas.dev';
+
     /* MAINTENANCE MODE */
     const isMaintenanceMode = process.env.MAINTENANCE_MODE === 'true'
 
-    if (isMaintenanceMode && !request.nextUrl.pathname.startsWith('/maintenance')) {
+    if (isMaintenanceMode && !isDocsSubdomain && !request.nextUrl.pathname.startsWith('/maintenance')) {
         return NextResponse.rewrite(new URL('/maintenance', request.url))
     }
 
