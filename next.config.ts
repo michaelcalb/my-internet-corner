@@ -45,6 +45,26 @@ const nextConfig: NextConfig = {
 
         return config;
     },
+
+    // Docs subdomain config
+    async rewrites() {
+        return {
+            beforeFiles: [
+                {
+                    source: '/',
+                    has: [{ type: 'host', value: 'docs.michas.dev' }],
+                    destination: '/docs'
+                }
+            ],
+            fallback: [
+                {
+                    source: '/:path*',
+                    has: [{ type: 'host', value: 'docs.michas.dev' }],
+                    destination: 'https://michaelcalb.github.io/docs/:path*'
+                }
+            ]
+        }
+    },
 };
 
 export default nextConfig;
