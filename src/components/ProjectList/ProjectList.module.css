@@ -5,7 +5,6 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    padding: 1rem;
     grid-auto-rows: 100px;
     animation: enableScroll 0s linear 1s forwards;
     height: 100%;
@@ -103,9 +102,5 @@
 }
 
 .projectList:has(.projectItem:hover) .projectItem:not(:hover) .projectCard {
-    opacity: .5;
-}
-
-.projectItem:hover {
-    scale: 1.05;
+    opacity: .727;
 }

@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
-import { Trispace } from 'next/font/google'
+import { Geist, Trispace } from 'next/font/google'
 import './globals.css'
+import clsx from 'clsx';
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
 
 const trispace = Trispace({
     variable: '--font-trispace',
@@ -18,7 +24,7 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="en" className={trispace.variable}>
+        <html lang="en" className={clsx(geistSans.variable, trispace.variable)}>
             <head>
                 <script
                     dangerouslySetInnerHTML={{

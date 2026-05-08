@@ -25,7 +25,7 @@ export default async function ProjectList() {
     return (
         <ul className={styles.projectList}>
             {projects
-                .filter((p) => p.name !== githubUsername)
+                .filter((p) => ![githubUsername, 'docs'].includes(p.name))
                 .map((p, index) => (
                     <li key={p.id} className={styles.projectItem} style={{ '--i': index } as React.CSSProperties}>
                         <Link href={p.html_url} target="_blank" rel="noopener noreferrer" className={styles.projectCard}>

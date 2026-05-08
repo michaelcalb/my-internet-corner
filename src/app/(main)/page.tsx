@@ -18,7 +18,7 @@ export default function Home() {
 
     return (
         <Window title="Home">
-            <div className={styles.home}>
+            <div className={styles.page}>
                 <div className={styles.terminal}>
                     <p className={styles.warning}>
                         This place is still a work in progress.

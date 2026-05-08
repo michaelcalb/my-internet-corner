@@ -74,7 +74,7 @@ export default function Contact() {
 
     return (
         <Window title="Contact">
-            <div className={styles.contact}>
+            <div className={styles.page}>
                 <section className={styles.contactSection}>
                     {contactItems.map((item, index) => {
                         const isCopied = copiedIndex === index

@@ -1,5 +1,40 @@
-.projects {
+.page {
     height: 100%;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.header {
+    display: flex;
+    gap: 1rem;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: var(--default-transition);
+}
+
+.icon {
+    width: 24px;
+    height: auto;
+}
+
+.hr {
+    border: none;
+    border-top: 2px solid;
+}
+
+.link:hover {
+    background-color: rgba(100, 100, 100, 0.1);
+    transition: var(--default-transition);
 }
