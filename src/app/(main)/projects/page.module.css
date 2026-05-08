@@ -1,14 +1,16 @@
 .page {
     height: 100%;
+    min-height: 0;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    gap: 1rem;
+    padding: var(--length-md);
+    gap: var(--length-md);
+    overflow: hidden;
 }
 
 .header {
     display: flex;
-    gap: 1rem;
+    gap: var(--length-md);
 }
 
 .link {
@@ -16,11 +18,11 @@
     color: inherit;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    border: 2px solid;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-size: 1rem;
+    gap: var(--space-sm);
+    border: var(--border-width-medium) solid;
+    padding: var(--space-sm) var(--length-md);
+    border-radius: var(--radius-sm);
+    font-size: var(--length-md);
     transition: var(--default-transition);
 }
 
@@ -31,10 +33,22 @@
 
 .hr {
     border: none;
-    border-top: 2px solid;
+    border-top: var(--border-width-medium) solid;
 }
 
 .link:hover {
     background-color: rgba(100, 100, 100, 0.1);
     transition: var(--default-transition);
+}
+
+@media (max-width: 799px) {
+    .header {
+        flex-wrap: wrap;
+    }
+
+    .link {
+        flex: 1 1 0;
+        justify-content: center;
+        min-width: 0;
+    }
 }

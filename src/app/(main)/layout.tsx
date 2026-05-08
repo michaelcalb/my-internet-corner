@@ -24,24 +24,24 @@ export default async function RootLayout({
         <Suspense>
             <SecretProviderWrapper>
                 <LanyardProvider>
-                <main className={styles.main}>
-                    <aside
-                        className={clsx(
-                            styles.asideContainer,
-                            styles.windowContainer,
-                        )}
-                    >
-                        <AboutMe />
-                    </aside>
-                    <section
-                        className={clsx(
-                            styles.windowContainer,
-                            styles.contentContainer,
-                        )}>
-                        {children}
-                    </section>
-                </main>
-                <NavBar />
+                    <main className={styles.main}>
+                        <aside
+                            className={clsx(
+                                styles.asideContainer,
+                                styles.windowContainer,
+                            )}
+                        >
+                            <AboutMe />
+                        </aside>
+                        <section
+                            className={clsx(
+                                styles.windowContainer,
+                                styles.contentContainer,
+                            )}>
+                            {children}
+                        </section>
+                    </main>
+                    <NavBar />
                 </LanyardProvider>
             </SecretProviderWrapper>
         </Suspense>

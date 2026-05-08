@@ -1,44 +1,42 @@
 .page {
-    padding: 1rem;
+    padding: var(--length-md);
     display: flex;
     flex-direction: column;
     height: 100%;
-    mask-image: linear-gradient(to bottom, black 40%, transparent 60%);
+    min-height: 0;
+    mask-image: linear-gradient(to bottom, var(--color-black) 40%, transparent 60%);
     mask-size: 100% 240%;
     mask-position: 0 100%;
-    animation: reveal 1.5s ease-out forwards .5s;
+    animation: reveal 1.5s ease-out forwards var(--duration-medium);
 }
 
 .title {
     font-weight: normal;
-    margin-bottom: 1rem;
+    margin-bottom: var(--length-md);
 }
 
 .terminal {
     font-family: var(--font-trispace);
-    background-color: rgb(0, 0, 0);
-    color: rgb(219, 219, 219);
-    padding: 1rem;
-    border-radius: .2rem;
+    background-color: var(--color-black);
+    color: var(--color-text-bright);
+    padding: var(--length-md);
+    border-radius: var(--length-2xs);
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: var(--space-sm);
     flex-grow: 1;
-    overflow-y: scroll;
-    scrollbar-width: none;
-}
-
-.terminal::-webkit-scrollbar {
-    display: none;
+    min-height: 0;
+    overflow-y: auto;
 }
 
 .terminal::selection {
-    background-color: rgb(230, 230, 230);
-    color: rgb(0, 0, 0);
+    background-color: #e6e6e6;
+    color: var(--color-black);
 }
 
 .terminalLine {
     display: flex;
+    min-width: 0;
 }
 
 .warning {

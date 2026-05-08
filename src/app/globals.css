@@ -1,9 +1,53 @@
 :root {
-	--default-spacing: 1.5rem;
-	--default-cubic-bezier: cubic-bezier(0.32, 0.08, 0.00, 1.00);
-	--default-transition: all .2s var(--default-cubic-bezier);
+	--length-2xs: .2rem;
+	--length-md: 1rem;
 
-	--bg-color: #0f0f0f ;
+	--space-sm: .5rem;
+	--space-md: .75rem;
+	--space-xl: 1.5rem;
+	--space-2xl: 2rem;
+
+	--radius-sm: 5px;
+	--radius-lg: 10px;
+	--radius-circle: 50%;
+
+	--border-width-thin: 1px;
+	--border-width-medium: 2px;
+
+	--font-size-sm: .8rem;
+	--font-size-md: .9rem;
+
+	--duration-fast: .1s;
+	--duration-normal: .2s;
+	--duration-medium: .5s;
+	--duration-slow: 1s;
+
+	--default-spacing: clamp(var(--space-md), 2.5vw, var(--space-xl));
+	--default-cubic-bezier: cubic-bezier(0.32, 0.08, 0.00, 1.00);
+	--default-transition: all var(--duration-normal) var(--default-cubic-bezier);
+	--transition-fast: var(--duration-fast) ease-in-out;
+	--mobile-nav-height: 3rem;
+	--mobile-nav-safe-area: env(safe-area-inset-bottom);
+
+	--color-black: #000000;
+	--color-white: #ffffff;
+	--color-page-bg: #0a0a0a;
+	--color-content-bg: #111111;
+	--color-link-bg: #0d0d0d;
+
+	--color-text-bright: #f0f0f0;
+	--color-text-primary: #d4d4d4;
+	--color-text-link: #a3a3a3;
+	--color-text-muted: #737373;
+
+	--color-accent-success: #22c55e;
+	--color-accent-activity: #818cf8;
+	--color-status-online: #4ade80;
+	--color-status-busy: #f87171;
+	--color-status-idle: #facc15;
+	--color-status-offline: #525252;
+
+	--color-scrollbar-thumb: #2a2a2a;
 }
 
 * {
@@ -11,18 +55,32 @@
 	margin: 0;
 	padding: 0;
 	scrollbar-width: thin;
-	scrollbar-color: #444 #0a0a0a;
+	scrollbar-color: var(--color-scrollbar-thumb) #0a0a0a;
 }
 
 html,
 body {
 	font-family: var(--font-geist-sans);
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	background: var(--bg-color);
+	background: var(--color-page-bg);
+}
+
+body {
+	height: 100dvh;
+}
+
+@media (max-width: 799px) {
+	html,
+	body {
+		height: auto;
+		min-height: 100dvh;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
 }
 
 ::-webkit-scrollbar {
@@ -35,7 +93,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #444;
+  background: var(--color-scrollbar-thumb);
   border-radius: 4px;
 }
 

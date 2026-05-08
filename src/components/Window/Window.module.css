@@ -1,10 +1,12 @@
 .window {
 	height: 100%;
+	min-width: 0;
+	min-height: 0;
 	display: flex;
 	flex-direction: column;
-	border: 1px solid rgb(53, 53, 53);
+	border: var(--border-width-thin) solid rgb(53, 53, 53);
 
-	border-radius: 10px;
+	border-radius: var(--radius-lg);
 	corner-shape: squircle;
 
 	overflow: hidden;
@@ -15,7 +17,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding-left: .5rem;
+	padding-left: var(--space-sm);
 	height: 2rem;
 	flex-shrink: 0;
 }
@@ -24,7 +26,7 @@
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	color: rgb(194, 194, 194);
+	color: var(--color-text-primary);
 }
 
 .controlBtnGroup {
@@ -42,29 +44,36 @@
 	height: 100%;
 	width: 2.5rem;
 	cursor: pointer;
-	color: rgb(194, 194, 194);
-	transition: .1s ease-in-out;
+	color: var(--color-text-primary);
+	transition: var(--transition-fast);
 }
 
 .controlBtn:hover {
 	background-color: rgba(255, 255, 255, 0.1);
-	transition: .1s ease-in-out;
+	transition: var(--transition-fast);
 }
 
 .closeBtn:hover {
 	background-color: rgba(200, 0, 0, 0.3);
-	transition: .1s ease-in-out;
+	transition: var(--transition-fast);
 }
 
 .content {
 	flex: 1;
+	min-width: 0;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
 	overflow: hidden;
-
-	border-radius: 5px;
+	border-radius: var(--radius-sm);
 	corner-shape: squircle;
 
 	margin: 2px;
 	margin-top: 0;
-	background-color: rgb(20, 20, 20);
-	color: rgb(194, 194, 194);
+	background-color: var(--color-content-bg);
+	color: var(--color-text-primary);
+}
+
+.content > :global(*) {
+	flex: 1 1 auto;
 }

@@ -3,15 +3,18 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    padding: 1rem;
+    min-height: 0;
+    padding: var(--length-md);
+    gap: var(--length-md);
     opacity: 0;
-    animation: fadeIn 1s ease-out forwards .2s;
+    animation: fadeIn var(--duration-slow) ease-out forwards var(--duration-normal);
 }
 
 .bio {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--length-md);
+    min-width: 0;
 }
 
 .bioTitle {
@@ -23,10 +26,11 @@
     text-align: justify;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    font-size: 1rem;
+    gap: var(--length-md);
+    font-size: var(--length-md);
     line-height: 1.2rem;
     font-weight: 300;
+    overflow-wrap: anywhere;
 }
 
 .timezone {
@@ -39,63 +43,66 @@
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 0;
-    background-color: var(--bg-color);
-    border-radius: 5px;
-    padding: .5rem;
+    background-color: var(--color-page-bg);
+    border-radius: var(--radius-sm);
+    padding: var(--space-sm);
+    min-width: 0;
 
     transition: 
-        opacity .5s var(--default-cubic-bezier),
-        flex-grow .5s var(--default-cubic-bezier) .5s,
-        gap .5s var(--default-cubic-bezier) .5s;
+        opacity var(--duration-medium) var(--default-cubic-bezier),
+        flex-grow var(--duration-medium) var(--default-cubic-bezier) var(--duration-medium),
+        gap var(--duration-medium) var(--default-cubic-bezier) var(--duration-medium);
 }
 
 .status.showSpotify {
     transition:
-        opacity .5s var(--default-cubic-bezier),
-        flex-grow .5s var(--default-cubic-bezier),
+        opacity var(--duration-medium) var(--default-cubic-bezier),
+        flex-grow var(--duration-medium) var(--default-cubic-bezier);
 }
 
 .statusCardGroup {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    column-gap: var(--space-sm);
 }
 
 .statusCard {
     display: flex;
+    align-items: center;
     gap: .3rem;
-    border-radius: .2rem;
-    padding: .2rem .4rem;
-    background-color: var(--bg-color);
+    border-radius: var(--length-2xs);
+    padding: var(--length-2xs) calc(var(--length-2xs) * 2);
+    background-color: var(--color-page-bg);
 }
 
 .presenceCard {
-    border: 1px solid transparent;
+    border: var(--border-width-thin) solid transparent;
 }
 
 .online {
-    color: rgb(100, 200, 100);
-    border-color: rgb(100, 200, 100);
+    color: var(--color-status-online);
+    border-color: var(--color-status-online);
 }
 
 .busy {
-    color: rgb(200, 100, 100);
-    border-color: rgb(200, 100, 100);
+    color: var(--color-status-busy);
+    border-color: var(--color-status-busy);
 }
 
 .idle {
-    color: rgb(200, 200, 100);
-    border-color: rgb(200, 200, 100);
+    color: var(--color-status-idle);
+    border-color: var(--color-status-idle);
 }
 
 .offline {
-    color: rgb(150, 150, 150);
-    border-color: rgb(150, 150, 150);
+    color: var(--color-status-offline);
+    border-color: var(--color-status-offline);
 }
 
 .activityCard {
-    color: rgb(155, 155, 255);
-    border: 1px solid rgb(155, 155, 255);
+    color: var(--color-accent-activity);
+    border: var(--border-width-thin) solid var(--color-accent-activity);
     min-width: 0;
     overflow: hidden;
 }
@@ -122,11 +129,11 @@
     transform: scale(.5);
     filter: blur(10px);
     transition:
-    opacity .5s var(--default-cubic-bezier),
-    transform .5s var(--default-cubic-bezier),
-    filter .5s var(--default-cubic-bezier),
-    margin-top 1s var(--default-cubic-bezier) .5s,
-    max-height 1s var(--default-cubic-bezier) .5s;
+    opacity var(--duration-medium) var(--default-cubic-bezier),
+    transform var(--duration-medium) var(--default-cubic-bezier),
+    filter var(--duration-medium) var(--default-cubic-bezier),
+    margin-top var(--duration-slow) var(--default-cubic-bezier) var(--duration-medium),
+    max-height var(--duration-slow) var(--default-cubic-bezier) var(--duration-medium);
 }
 
 .spotifyBox.showSpotify {
@@ -135,31 +142,31 @@
     pointer-events: auto;
     transform: scale(1);
     filter: blur(0);
-    margin-top: 1rem;
+    margin-top: var(--length-md);
     transition:
-        opacity .5s var(--default-cubic-bezier) 1s,
-        transform .5s var(--default-cubic-bezier) 1s,
-        filter .5s var(--default-cubic-bezier) 1s,
-        margin-top 1s var(--default-cubic-bezier) .5s,
-        max-height 1s var(--default-cubic-bezier) .5s;
+        opacity var(--duration-medium) var(--default-cubic-bezier) var(--duration-slow),
+        transform var(--duration-medium) var(--default-cubic-bezier) var(--duration-slow),
+        filter var(--duration-medium) var(--default-cubic-bezier) var(--duration-slow),
+        margin-top var(--duration-slow) var(--default-cubic-bezier) var(--duration-medium),
+        max-height var(--duration-slow) var(--default-cubic-bezier) var(--duration-medium);
 }
 
 .boxIndicator {
-    color: rgb(55, 200, 100);
-    border: 1px solid rgb(55, 200, 100);
+    color: var(--color-accent-success);
+    border: var(--border-width-thin) solid var(--color-accent-success);
     width: fit-content;
     border-end-start-radius: 0;
     border-end-end-radius: 0;
     border-bottom: none;
-    margin-bottom: -1px;
-    background-color: var(--bg-color);
+    margin-bottom: calc(var(--border-width-thin) * -1);
+    background-color: var(--color-page-bg);
     position: relative;
     z-index: 1;
 }
 
 .status.inactive {
     opacity: 0;
-    transition: opacity .5s var(--default-cubic-bezier);
+    transition: opacity var(--duration-medium) var(--default-cubic-bezier);
 }
 
 @keyframes fadeIn {
