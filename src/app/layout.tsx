@@ -15,7 +15,7 @@ const trispace = Trispace({
 
 export const metadata: Metadata = {
     title: 'michas.dev',
-    description: 'my internet corner',
+    description: 'My personal internet corner, or a portfolio, if you will.',
 }
 
 export default function RootLayout({
