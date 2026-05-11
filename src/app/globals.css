@@ -47,13 +47,9 @@
 	--color-status-idle: light-dark(#a47700, #facc15);
 	--color-status-offline: light-dark(#777777, #525252);
 
-	--color-scrollbar-track: light-dark(#e4e4df, #1a1a1a);
-	--color-scrollbar-thumb: light-dark(#b7b7af, #2a2a2a);
-	--color-scrollbar-thumb-hover: light-dark(#96968f, #1f1f1f);
-
 	--color-border: light-dark(#d7d7d0, #404040);
 	--color-border-hover: light-dark(#8e8e88, #9b9b9b);
-	--color-control-hover: rgba(0, 0, 0, 0.1);
+	--color-control-hover: rgba(125, 125, 125, 0.1);
 	--color-danger-hover: rgba(200, 0, 0, 0.3);
 	--color-card-hover: light-dark(rgba(0, 0, 0, 0.06), rgba(100, 100, 100, 0.1));
 	--color-language-dot-border: light-dark(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.1));
@@ -77,8 +73,7 @@ html[data-theme="dark"] {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	scrollbar-width: thin;
-	scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+    scrollbar-width: none;
 }
 
 html,
