@@ -16,7 +16,7 @@
     opacity: 0;
     animation: slideIn var(--duration-medium) var(--default-cubic-bezier) forwards;
     animation-delay: calc(var(--i) * var(--duration-fast));
-    border: var(--border-width-thin) solid rgb(100, 100, 100);
+    border: var(--border-width-thin) solid var(--color-border);
     border-radius: var(--radius-sm);
     transition: var(--default-transition);
 }
@@ -58,7 +58,7 @@
 }
 
 .starIcon {
-    color: rgb(194, 178, 89);
+    color: var(--color-star);
 }
 
 .meta {
@@ -75,7 +75,7 @@
     width: 10px;
     aspect-ratio: 1 / 1;
     border-radius: var(--radius-circle);
-    border: var(--border-width-thin) solid rgba(0, 0, 0, 0.1);
+    border: var(--border-width-thin) solid var(--color-language-dot-border);
 }
 
 .description {

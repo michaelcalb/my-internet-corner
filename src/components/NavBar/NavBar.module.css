@@ -32,13 +32,22 @@
     justify-content: center;
 }
 
+.navButton {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+}
+
 .navContent {
     position: relative;
-    color: rgb(197, 197, 197);
+    color: var(--color-nav-icon);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--space-sm);
+    width: 2.75rem;
+    height: 2.75rem;
     border: var(--border-width-thin) solid transparent;
     border-radius: var(--radius-lg);
     border-style: squircle;
@@ -47,7 +56,7 @@
 
 .navLink:hover .navContent {
     transform: translateY(-20%);
-    background-color: rgb(37, 37, 37);
+    background-color: var(--color-nav-hover-bg);
     transition: var(--default-transition);
 }
 
@@ -86,7 +95,29 @@
         min-height: var(--mobile-nav-height);
         border-radius: 0;
         corner-shape: none;
+        gap: var(--space-md);
+        padding: 0 var(--space-md);
         transition: var(--default-transition) var(--duration-fast);
+    }
+
+    .navLink:hover .navContent {
+        transform: none;
+    }
+
+    .navContent::after {
+        display: none;
+    }
+}
+
+@media (max-width: 320px) {
+    .navList {
+        gap: var(--space-sm);
+        padding: 0 var(--space-sm);
+    }
+
+    .navContent {
+        width: 2.5rem;
+        height: 2.5rem;
     }
 }
 

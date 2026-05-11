@@ -1,0 +1,137 @@
+.backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    padding: var(--default-spacing);
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.modal {
+    width: min(100%, 420px);
+    max-height: calc(100dvh - (var(--default-spacing) * 2));
+    overflow: auto;
+    color: var(--color-neutral-50);
+    background-color: var(--color-content-bg);
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    border-bottom: var(--border-width-thin) solid var(--color-border);
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.closeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 auto;
+    color: var(--color-neutral-50);
+    background-color: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.closeButton:hover,
+.closeButton:focus-visible {
+    background-color: var(--color-control-hover);
+}
+
+.content {
+    padding: var(--space-md);
+}
+
+.settingRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    min-width: 0;
+}
+
+.settingTitle {
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.segmentedControl {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 240px);
+    background-color: var(--color-page-bg);
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--radius-sm);
+}
+
+.segmentButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    min-width: 0;
+    min-height: 2.5rem;
+    color: var(--color-neutral-50);
+    background-color: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font: inherit;
+    font-size: var(--font-size-md);
+    transition: var(--transition-fast);
+}
+
+.segmentButton span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.segmentButton:hover,
+.segmentButton:focus-visible {
+    background-color: var(--color-control-hover);
+}
+
+.selectedSegment {
+    background-color: var(--color-neutral-0);
+}
+
+@media (max-width: 480px) {
+    .backdrop {
+        align-items: end;
+        padding: var(--space-sm);
+        padding-bottom: calc(var(--space-sm) + var(--mobile-nav-height) + var(--mobile-nav-safe-area));
+    }
+
+    .modal {
+        width: 100%;
+        max-height: calc(100dvh - var(--mobile-nav-height) - var(--mobile-nav-safe-area) - (var(--space-sm) * 2));
+    }
+
+    .settingRow {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .segmentedControl {
+        width: 100%;
+    }
+}

@@ -78,7 +78,7 @@
     position: relative;
     border: none;
     background-color: transparent;
-    color: rgb(200, 200, 200);
+    color: var(--color-copy);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -103,11 +103,11 @@
 }
 
 .contactLink:hover {
-    border: var(--border-width-medium) solid rgb(155, 155, 155);
+    border: var(--border-width-medium) solid var(--color-border-hover);
 }
 
 .discordIcon {
-    color: rgb(32, 32, 64);
+    color: var(--color-discord);
 }
 
 .emailIcon {
@@ -119,7 +119,7 @@
     flex-direction: column;
     gap: var(--space-xl);
     margin-top: auto;
-    border-top: var(--border-width-thin) solid rgb(50, 50, 50);
+    border-top: var(--border-width-thin) solid var(--color-border);
     opacity: 0;
     transform: translateY(200%);
     animation: slideInFromBottom var(--duration-slow) var(--default-cubic-bezier) var(--duration-medium) forwards;

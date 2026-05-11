@@ -36,7 +36,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    color: rgb(161, 161, 161);
+    color: var(--color-spotify-author);
     font-size: var(--font-size-sm);
 }
 

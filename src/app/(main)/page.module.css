@@ -17,8 +17,8 @@
 
 .terminal {
     font-family: var(--font-trispace);
-    background-color: var(--color-neutral-0);
-    color: var(--color-neutral-50);
+    background-color: #000000;
+    color: #f5f5f5;
     padding: var(--length-md);
     border-radius: var(--length-2xs);
     display: flex;
@@ -31,7 +31,7 @@
 
 .terminal::selection {
     background-color: #e6e6e6;
-    color: var(--color-neutral-0);
+    color: #000000;
 }
 
 .terminalLine {

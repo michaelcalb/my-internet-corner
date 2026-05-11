@@ -37,7 +37,7 @@
 }
 
 .link:hover {
-    background-color: rgba(100, 100, 100, 0.1);
+    background-color: var(--color-card-hover);
     transition: var(--default-transition);
 }
 
