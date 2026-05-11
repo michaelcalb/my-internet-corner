@@ -29,7 +29,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    color: var(--color-text-bright);
+    color: var(--color-neutral-50);
 }
 
 .author {
@@ -45,7 +45,7 @@
     width: 100%;
     height: var(--space-sm);
     overflow: hidden;
-    background-color: rgb(32, 32, 32);
+    background-color: var(--color-neutral-850);
     border-radius: var(--length-md);
 }
 

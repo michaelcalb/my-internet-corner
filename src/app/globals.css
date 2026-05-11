@@ -29,18 +29,16 @@
 	--mobile-nav-height: 3rem;
 	--mobile-nav-safe-area: env(safe-area-inset-bottom);
 
-	--color-black: #000000;
-	--color-white: #ffffff;
-	--color-page-bg: #0a0a0a;
-	--color-content-bg: #111111;
-	--color-link-bg: #0d0d0d;
+	--color-neutral-0: #000000;
+	--color-neutral-50: #f5f5f5;
+	--color-neutral-850: #202020;
+	--color-page-bg: #080808;
+	--color-content-bg: #101010;
 
-	--color-text-bright: #f0f0f0;
-	--color-text-primary: #d4d4d4;
-	--color-text-link: #a3a3a3;
-	--color-text-muted: #737373;
+	--color-text-link: #e0e0e0;
+	--color-text-muted: #727272;
 
-	--color-accent-success: #22c55e;
+	--color-accent-success: #1ed760;
 	--color-accent-activity: #818cf8;
 	--color-status-online: #4ade80;
 	--color-status-busy: #f87171;

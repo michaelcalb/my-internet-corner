@@ -4,7 +4,7 @@
     flex-direction: column;
     height: 100%;
     min-height: 0;
-    mask-image: linear-gradient(to bottom, var(--color-black) 40%, transparent 60%);
+    mask-image: linear-gradient(to bottom, var(--color-neutral-0) 40%, transparent 60%);
     mask-size: 100% 240%;
     mask-position: 0 100%;
     animation: reveal 1.5s ease-out forwards var(--duration-medium);
@@ -17,8 +17,8 @@
 
 .terminal {
     font-family: var(--font-trispace);
-    background-color: var(--color-black);
-    color: var(--color-text-bright);
+    background-color: var(--color-neutral-0);
+    color: var(--color-neutral-50);
     padding: var(--length-md);
     border-radius: var(--length-2xs);
     display: flex;
@@ -31,7 +31,7 @@
 
 .terminal::selection {
     background-color: #e6e6e6;
-    color: var(--color-black);
+    color: var(--color-neutral-0);
 }
 
 .terminalLine {

@@ -4,13 +4,13 @@
 	min-height: 0;
 	display: flex;
 	flex-direction: column;
-	border: var(--border-width-thin) solid rgb(53, 53, 53);
+	border: var(--border-width-thin) solid rgb(64, 64, 64);
 
 	border-radius: var(--radius-lg);
 	corner-shape: squircle;
 
 	overflow: hidden;
-	background-color: #0c0c0c;
+	background-color: var(--color-page-bg);
 }
 
 .titleBar {
@@ -26,7 +26,7 @@
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	color: var(--color-text-primary);
+	color: var(--color-neutral-50);
 }
 
 .controlBtnGroup {
@@ -44,7 +44,7 @@
 	height: 100%;
 	width: 2.5rem;
 	cursor: pointer;
-	color: var(--color-text-primary);
+	color: var(--color-neutral-50);
 	transition: var(--transition-fast);
 }
 
@@ -71,7 +71,7 @@
 	margin: 2px;
 	margin-top: 0;
 	background-color: var(--color-content-bg);
-	color: var(--color-text-primary);
+	color: var(--color-neutral-50);
 }
 
 .content > :global(*) {

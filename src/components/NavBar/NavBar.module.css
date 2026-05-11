@@ -18,7 +18,7 @@
     height: 100%;
     align-items: center;
     justify-content: space-evenly;
-    background-color: rgb(8, 8, 8);
+    background-color: var(--color-neutral-0);
     border-radius: 20px;
     corner-shape: squircle;
     padding: 0 var(--space-xl);
@@ -61,7 +61,7 @@
     transform: scale(0.5);
     transition: var(--default-transition), bottom var(--duration-normal) var(--default-cubic-bezier) var(--duration-normal);
     font-size: var(--font-size-md);
-    color: var(--color-text-bright);
+    color: var(--color-neutral-50);
 }
 
 .navLink:hover .navContent::after {

@@ -76,8 +76,8 @@
 @media (max-width: 150px) {
     .main::before {
         content: '{th3_s7yle5_d3bu6g3r}';
-        background-color: var(--color-black);
-        color: var(--color-white);
+        background-color: var(--color-neutral-0);
+        color: var(--color-neutral-50);
         width: 100vw;
         height: 100vh;
         position: fixed;

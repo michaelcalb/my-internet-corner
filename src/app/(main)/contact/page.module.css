@@ -32,7 +32,7 @@
     align-items: center;
     justify-content: left;
     text-decoration: none;
-    background-color: var(--color-link-bg);
+    background-color: var(--color-neutral-0);
     border: var(--border-width-medium) solid transparent;
     color: var(--color-text-link);
     border-radius: var(--radius-sm);
@@ -63,7 +63,6 @@
     position: absolute;
     top: 0;
     left: -15px;
-    color: var(--color-content-bg);
     transition: var(--default-transition);
     z-index: 1;
 }
@@ -107,12 +106,12 @@
     border: var(--border-width-medium) solid rgb(155, 155, 155);
 }
 
-.contactLink:hover .discordIcon {
-    color: rgb(40, 40, 80);
+.discordIcon {
+    color: rgb(32, 32, 64);
 }
 
-.contactLink:hover .emailIcon {
-    color: rgb(40, 40, 40);
+.emailIcon {
+    color: var(--color-neutral-850);
 }
 
 .socialSection {
@@ -147,7 +146,7 @@
     align-items: center;
     text-decoration: none;
     color: var(--color-text-link);
-    background-color: var(--color-link-bg);
+    background-color: var(--color-neutral-0);
     padding: var(--space-sm);
     border-radius: .5rem;
     opacity: 0;
