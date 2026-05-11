@@ -5,9 +5,5 @@ I mainly use it to experiment with new things and implement cool ideas that come
 
 
 ## todo list
-- [ ] config menu
-- [ ] dark/white mode toggle
 - [ ] replace placeholder home page
-- [ ] better color palette
-- [ ] navigation flow overhaul
 - [ ] ???
