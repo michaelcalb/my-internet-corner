@@ -24,18 +24,24 @@ function getInitialTheme(): Theme {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
+function applyTheme(nextTheme: Theme) {
+    document.documentElement.dataset.theme = nextTheme
+    document.documentElement.style.colorScheme = nextTheme
+}
+
 export function useTheme() {
     const [theme, setTheme] = useState<Theme>(getInitialTheme)
 
-    function updateTheme(nextTheme: Theme) {
-        document.documentElement.dataset.theme = nextTheme
-        document.documentElement.style.colorScheme = nextTheme
+    function toggleTheme() {
+        const nextTheme = theme === 'dark' ? 'light' : 'dark'
+
+        applyTheme(nextTheme)
         localStorage.setItem(storageKey, nextTheme)
         setTheme(nextTheme)
     }
 
     return {
         theme,
-        setTheme: updateTheme,
+        toggleTheme,
     }
 }
