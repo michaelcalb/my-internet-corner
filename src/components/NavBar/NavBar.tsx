@@ -1,14 +1,18 @@
 'use client'
 
+import { useSyncExternalStore } from 'react'
 import { Code, Flag, House, Mail, Moon, Sun } from 'lucide-react'
 import styles from './NavBar.module.css'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useSecret } from '@/contexts/SecretContext'
 import clsx from 'clsx'
-import { useTheme } from '@/hooks/useTheme'
+import { useTheme } from 'next-themes'
 
 const itemSize = 28
+const subscribe = () => () => {}
+const getClientSnapshot = () => true
+const getServerSnapshot = () => false
 
 const navItems = [
     { href: '/', label: <House size={itemSize} />, aria: "Home" },
@@ -19,10 +23,19 @@ const navItems = [
 export default function NavBar() {
     const { isUnlocked } = useSecret()
     const pathname = usePathname()
-    const { theme, toggleTheme } = useTheme()
-    const isDark = theme === 'dark'
+    const { resolvedTheme, setTheme } = useTheme()
+    const mounted = useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot)
+    const isDark = resolvedTheme === 'dark'
     const themeLabel = isDark ? 'White mode' : 'Dark mode'
     const ThemeIcon = isDark ? Sun : Moon
+
+    function toggleTheme() {
+        if (!mounted) {
+            return
+        }
+
+        setTheme(isDark ? 'light' : 'dark')
+    }
 
     return (
         <nav className={styles.navBar}>
@@ -50,10 +63,15 @@ export default function NavBar() {
                         type="button"
                         className={clsx(styles.navLink, styles.navButton)}
                         onClick={toggleTheme}
-                        aria-label={`Switch to ${themeLabel.toLowerCase()}`}
+                        disabled={!mounted}
+                        aria-label={mounted ? `Switch to ${themeLabel.toLowerCase()}` : 'Theme toggle'}
                     >
-                        <span className={styles.navContent} data-tooltip={themeLabel}>
-                            <ThemeIcon size={itemSize} />
+                        <span className={styles.navContent} data-tooltip={mounted ? themeLabel : 'Theme'}>
+                            {mounted ? (
+                                <ThemeIcon size={itemSize} />
+                            ) : (
+                                <Moon size={itemSize} aria-hidden="true" style={{ visibility: 'hidden' }} />
+                            )}
                         </span>
                     </button>
                 </li>

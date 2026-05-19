@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Trispace } from 'next/font/google'
 import Script from 'next/script'
+import { ThemeProvider } from 'next-themes'
 import './globals.css'
 import clsx from 'clsx';
 
@@ -18,19 +19,6 @@ export const metadata: Metadata = {
     title: 'michas.dev',
     description: 'My personal internet corner, or a portfolio, if you will.',
 }
-
-const themeScript = `
-    (function() {
-        try {
-            var theme = localStorage.getItem('theme');
-
-            if (theme === 'light' || theme === 'dark') {
-                document.documentElement.dataset.theme = theme;
-                document.documentElement.style.colorScheme = theme;
-            }
-        } catch (error) {}
-    })();
-`
 
 const reloadInterceptorScript = `
     (function() {
@@ -57,10 +45,15 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning className={clsx(geistSans.variable, trispace.variable)}>
             <body>
-                {children}
-                <Script id="theme-init" strategy="beforeInteractive">
-                    {themeScript}
-                </Script>
+                <ThemeProvider
+                    attribute="data-theme"
+                    storageKey="theme"
+                    defaultTheme="system"
+                    enableSystem
+                    enableColorScheme
+                >
+                    {children}
+                </ThemeProvider>
                 <Script id="reload-interceptor" strategy="beforeInteractive">
                     {reloadInterceptorScript}
                 </Script>
