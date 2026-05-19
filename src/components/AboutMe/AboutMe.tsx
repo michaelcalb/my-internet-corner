@@ -62,8 +62,8 @@ export default function AboutMe() {
 						Hi, I&apos;m {name}
 					</h2>
 					<div className={styles.bioBox}>
-						<p>I'm a {age}-year-old software developer from Brazil, focused on full stack web development and cybersecurity.</p>
-						<p>I enjoy math and problem-solving; sometimes I also participate in <SecretInput input='CTF' />s, puzzle hunts, and other events.</p>
+						<p>I'm a {age}-year-old software developer from Brazil, focused on full stack web development and cybersecurity. Always learning something new, useful or not. <span className='mono'>;)</span></p>
+						<p>I enjoy math, problem-solving, and sharing knowledge. Sometimes I also participate in <SecretInput input='CTF' />s, puzzle hunts, and other events.</p>
 						<p className={styles.timezone}>{timezone}</p>
 					</div>
 				</section>

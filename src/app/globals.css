@@ -119,3 +119,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-scrollbar-thumb-hover);
 }
+
+.mono {
+    font-family: monospace;
+}
