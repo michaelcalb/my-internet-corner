@@ -17,6 +17,23 @@ const stackWebBack = ['nodejs', 'expressjs', 'nestjs', 'flask']
 const stackDb = ['mongodb', 'mysql', 'postgresql', 'firebase']
 const stackOther = ['python', 'c++']
 
+function StackList({ stacks }: { stacks: string[] }) {
+	return (
+		<ul className={styles.stack}>
+			{stacks.map((stack) => (
+				<li
+					key={stack}
+					aria-label={stack}
+					data-tooltip={stack}
+					className={styles.stackItem}
+				>
+					<StackIcon name={stack} />
+				</li>
+			))}
+		</ul>
+	)
+}
+
 export default function Home() {
 	return (
 		<Window title='Home'>
@@ -24,64 +41,27 @@ export default function Home() {
 				<h2>Welcome</h2>
 				<p>
 					This is my personal internet corner, or a portfolio, if you
+					will.
+				</p>
+				<p>
+					Feel free to check out my projects, get in touch or just
+					explore around, you might find a thing or two.
 				</p>
 				<p>
 					I hope you enjoy your stay. <span className='mono'>:)</span>
 				</p>
+                
 				<h2>My Stacks</h2>
 				<p>For web:</p>
-				<ul className={styles.stack}>
-					{stackWebFront.map((stack) => (
-						<li
-							key={stack}
-							aria-label={stack}
-							data-tooltip={stack}
-							className={styles.stackItem}
-						>
-							<StackIcon name={stack} />
-						</li>
-					))}
-				</ul>
-				<ul className={styles.stack}>
-					{stackWebBack.map((stack) => (
-						<li
-							key={stack}
-							aria-label={stack}
-							data-tooltip={stack}
-							className={styles.stackItem}
-						>
-							<StackIcon name={stack} />
-						</li>
-					))}
-				</ul>
-				<ul className={styles.stack}>
-					{stackDb.map((stack) => (
-						<li
-							key={stack}
-							aria-label={stack}
-							data-tooltip={stack}
-							className={styles.stackItem}
-						>
-							<StackIcon name={stack} />
-						</li>
-					))}
-				</ul>
+				<StackList stacks={stackWebFront} />
+				<StackList stacks={stackWebBack} />
+				<StackList stacks={stackDb} />
 
 				<p>For other stuff:</p>
-				<ul className={styles.stack}>
-					{stackOther.map((stack) => (
-						<li
-							key={stack}
-							aria-label={stack}
-							data-tooltip={stack}
-							className={styles.stackItem}
-						>
-							<StackIcon name={stack} />
-						</li>
-					))}
-				</ul>
+				<StackList stacks={stackOther} />
 
 				<h2>I Also Enjoy</h2>
+				<p>In my free time, I play the piano</p>
 			</div>
 		</Window>
 	)
