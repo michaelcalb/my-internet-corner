@@ -5,16 +5,73 @@
     height: 100%;
     min-height: 0;
     overflow-y: auto;
+    gap: var(--length-md);
+}
+
+.welcomeSection {
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    gap: var(--length-md);
+    font-size: var(--length-md);
+    line-height: calc(var(--length-md) + var(--length-2xs));
+    font-weight: 300;
+    overflow-wrap: anywhere;
+}
+
+.stacksSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.stacksContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    font-size: var(--font-size-md);
+}
+
+.stackGroup {
+    padding: var(--space-sm) var(--length-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    background-color: var(--color-page-bg);
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--radius-lg);
 }
 
 .stack {
     display: flex;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: var(--space-sm);
     list-style: none;
 }
 
 .stackItem {
     width: 40px;
     height: 40px;
+    position: relative;
+}
+
+.stackItem::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(var(--space-2xl) * -1);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-neutral-50);
+    color: var(--color-neutral-0);
+    padding: calc(var(--space-sm) / 2) var(--space-sm);
+    border-radius: calc(var(--space-sm) / 2);
+    font-size: var(--font-size-md);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--duration-normal) var(--default-cubic-bezier);
+    z-index: 2;
+}
+
+.stackItem:hover::after {
+    opacity: 1;
 }
