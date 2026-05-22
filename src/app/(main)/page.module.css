@@ -6,6 +6,8 @@
     min-height: 0;
     overflow-y: auto;
     gap: var(--length-md);
+    opacity: 0;
+    animation: fadeIn var(--duration-slow) ease-out forwards var(--duration-normal);
 }
 
 .welcomeSection {
@@ -74,4 +76,10 @@
 
 .stackItem:hover::after {
     opacity: 1;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
