@@ -4,7 +4,11 @@ import styles from './page.module.css'
 
 const FOLDER_ID = '1WO9jXsPzi74CRjtTO4r0o-PKo4S26_5N'
 
-type DriveFile = { id: string; name: string }
+type DriveFile = {
+	id: string
+	name: string
+	imageMediaMetadata?: { width: number; height: number }
+}
 
 async function getImages() {
 	'use cache'
@@ -16,7 +20,7 @@ async function getImages() {
 	do {
 		const params = new URLSearchParams({
 			q: `'${FOLDER_ID}' in parents and mimeType contains 'image/' and trashed = false`,
-			fields: 'nextPageToken, files(id, name)',
+			fields: 'nextPageToken, files(id, name, imageMediaMetadata(width, height))',
 			orderBy: 'createdTime desc',
 			pageSize: '1000',
 			pageToken,
@@ -44,11 +48,13 @@ export default async function KeepGoing() {
 		<Window title='Keep Going'>
 			<div className={styles.scroll}>
 				<ul className={styles.list}>
-					{images.map(({ id, name }) => (
+					{images.map(({ id, name, imageMediaMetadata }) => (
 						<li key={id}>
 							<img
 								src={`https://lh3.googleusercontent.com/d/${id}`}
 								alt={name}
+								width={imageMediaMetadata?.width}
+								height={imageMediaMetadata?.height}
 								loading='lazy'
 								referrerPolicy='no-referrer'
 								className={styles.image}
