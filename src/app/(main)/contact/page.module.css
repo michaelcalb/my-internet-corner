@@ -166,6 +166,10 @@
     transform: scale(1.2);
 }
 
+.socialLink:hover .osuIcon {
+    color: var(--color-osu);
+}
+
 @media (max-width: 799px) {
     .contactActions {
         width: 100%;

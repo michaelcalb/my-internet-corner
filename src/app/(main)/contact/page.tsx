@@ -7,6 +7,7 @@ import Email from '@/assets/icons/email.svg'
 import Discord from '@/assets/icons/discord.svg'
 import GitHub from '@/assets/icons/github.svg'
 import Steam from '@/assets/icons/steam.svg'
+import Osu from '@/assets/icons/osu.svg'
 import { usePresence } from '@/contexts/LanyardContext'
 import { Copy, Check } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
@@ -69,6 +70,10 @@ export default function Contact() {
         {
             icon: <Steam className={styles.cardIcon} />,
             href: 'https://steamcommunity.com/profiles/76561198344422424'
+        },
+        {
+            icon: <Osu className={clsx(styles.cardIcon, styles.osuIcon)} />,
+            href: 'https://osu.ppy.sh/users/13955247'
         }
     ]
 

@@ -54,6 +54,7 @@
 	--color-card-hover: light-dark(rgba(0, 0, 0, 0.06), rgba(100, 100, 100, 0.1));
 	--color-language-dot-border: light-dark(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.1));
 	--color-discord: light-dark(#a0a0c0, #202040);
+	--color-osu: #ff66aa;
 	--color-copy: light-dark(#454545, #c8c8c8);
 	--color-nav-icon: light-dark(#323232, #c5c5c5);
 	--color-nav-hover-bg: light-dark(#e8e8e3, #252525);
