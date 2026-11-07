@@ -8,7 +8,8 @@
     align-items: center;
     margin-bottom: var(--space-xl);
     z-index: 10;
-    animation: slideUp var(--duration-slow) var(--default-cubic-bezier) var(--duration-slow) both;
+    animation: slideUp var(--duration-slow) var(--default-cubic-bezier)
+        var(--duration-slow) both;
     transition: var(--default-transition) var(--duration-fast);
 }
 
@@ -68,7 +69,10 @@
     visibility: hidden;
     pointer-events: none;
     transform: scale(0.5);
-    transition: var(--default-transition), bottom var(--duration-normal) var(--default-cubic-bezier) var(--duration-normal);
+    transition:
+        var(--default-transition),
+        bottom var(--duration-normal) var(--default-cubic-bezier)
+            var(--duration-normal);
     font-size: var(--font-size-md);
     color: var(--color-neutral-50);
 }
@@ -131,24 +135,6 @@
     }
     100% {
         transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.secretItem {
-    animation: popIn var(--duration-medium) var(--default-cubic-bezier) both;
-}
-
-@keyframes popIn {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
         opacity: 1;
     }
 }
