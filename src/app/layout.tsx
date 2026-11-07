@@ -3,21 +3,21 @@ import { Geist, Trispace } from 'next/font/google'
 import Script from 'next/script'
 import { ThemeProvider } from 'next-themes'
 import './globals.css'
-import clsx from 'clsx';
+import clsx from 'clsx'
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+    variable: '--font-geist-sans',
+    subsets: ['latin']
+})
 
 const trispace = Trispace({
     variable: '--font-trispace',
-    subsets: ['latin'],
+    subsets: ['latin']
 })
 
 export const metadata: Metadata = {
     title: 'michas.dev',
-    description: 'My personal internet corner, or a portfolio, if you will.',
+    description: 'My personal internet corner, or a portfolio, if you will.'
 }
 
 const reloadInterceptorScript = `
@@ -38,12 +38,16 @@ const reloadInterceptorScript = `
 `
 
 export default function RootLayout({
-    children,
+    children
 }: Readonly<{
     children: React.ReactNode
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning className={clsx(geistSans.variable, trispace.variable)}>
+        <html
+            lang="en"
+            suppressHydrationWarning
+            className={clsx(geistSans.variable, trispace.variable)}
+        >
             <body>
                 <ThemeProvider
                     attribute="data-theme"

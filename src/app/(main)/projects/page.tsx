@@ -10,16 +10,26 @@ export default function Projects() {
         <Window title="Projects">
             <div className={styles.page}>
                 <header className={styles.header}>
-                    <Link href={'https://github.com/michaelcalb'} target='_blank' rel='noopener noreferrer' className={styles.link}>
-                        <GitHub className={styles.icon}/>
+                    <Link
+                        href={'https://github.com/michaelcalb'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.link}
+                    >
+                        <GitHub className={styles.icon} />
                         GitHub
                     </Link>
-                    <Link href={'https://docs.michas.dev'} target='_blank' rel='noopener noreferrer' className={styles.link}>
-                        <Docs className={styles.icon}/>
+                    <Link
+                        href={'https://docs.michas.dev'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.link}
+                    >
+                        <Docs className={styles.icon} />
                         Docs
                     </Link>
                 </header>
-                <hr className={styles.hr}/>
+                <hr className={styles.hr} />
                 <ProjectList />
             </div>
         </Window>

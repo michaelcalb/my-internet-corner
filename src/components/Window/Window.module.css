@@ -1,79 +1,79 @@
 .window {
-	height: 100%;
-	min-width: 0;
-	min-height: 0;
-	display: flex;
-	flex-direction: column;
-	border: var(--border-width-thin) solid var(--color-border);
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    border: var(--border-width-thin) solid var(--color-border);
 
-	border-radius: var(--radius-lg);
-	corner-shape: squircle;
+    border-radius: var(--radius-lg);
+    corner-shape: squircle;
 
-	overflow: hidden;
-	background-color: var(--color-page-bg);
+    overflow: hidden;
+    background-color: var(--color-page-bg);
 }
 
 .titleBar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding-left: var(--space-sm);
-	height: 2rem;
-	flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: var(--space-sm);
+    height: 2rem;
+    flex-shrink: 0;
 }
 
 .title {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	color: var(--color-neutral-50);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--color-neutral-50);
 }
 
 .controlBtnGroup {
-	display: flex;
-	align-items: center;
-	height: 100%;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .controlBtn {
-	border: none;
-	background-color: transparent;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	width: 2.5rem;
-	cursor: pointer;
-	color: var(--color-neutral-50);
-	transition: var(--transition-fast);
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 2.5rem;
+    cursor: pointer;
+    color: var(--color-neutral-50);
+    transition: var(--transition-fast);
 }
 
 .controlBtn:hover {
-	background-color: var(--color-control-hover);
-	transition: var(--transition-fast);
+    background-color: var(--color-control-hover);
+    transition: var(--transition-fast);
 }
 
 .closeBtn:hover {
-	background-color: var(--color-danger-hover);
-	transition: var(--transition-fast);
+    background-color: var(--color-danger-hover);
+    transition: var(--transition-fast);
 }
 
 .content {
-	flex: 1;
-	min-width: 0;
-	min-height: 0;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	border-radius: var(--radius-sm);
-	corner-shape: squircle;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    corner-shape: squircle;
 
-	margin: 2px;
-	margin-top: 0;
-	background-color: var(--color-content-bg);
-	color: var(--color-neutral-50);
+    margin: 2px;
+    margin-top: 0;
+    background-color: var(--color-content-bg);
+    color: var(--color-neutral-50);
 }
 
 .content > :global(*) {
-	flex: 1 1 auto;
+    flex: 1 1 auto;
 }

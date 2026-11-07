@@ -1,11 +1,11 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 
 export function useTimezoneDiff() {
     const [timeMessage, setTimeMessage] = useState<string>('')
     const targetOffsetHours = -3
-    
+
     useEffect(() => {
         const userOffsetMinutes = new Date().getTimezoneOffset()
         const userOffsetHours = -userOffsetMinutes / 60
@@ -23,7 +23,9 @@ export function useTimezoneDiff() {
             } else {
                 timeString = `${absoluteDiff} hour${absoluteDiff !== 1 ? 's' : ''}`
             }
-            setTimeMessage(`I am ${timeString} ${diff > 0 ? 'ahead of' : 'behind'} you.`)
+            setTimeMessage(
+                `I am ${timeString} ${diff > 0 ? 'ahead of' : 'behind'} you.`
+            )
         }
     }, [targetOffsetHours])
 

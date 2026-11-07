@@ -7,7 +7,8 @@
     overflow-y: auto;
     gap: var(--length-md);
     opacity: 0;
-    animation: fadeIn var(--duration-slow) ease-out forwards var(--duration-normal);
+    animation: fadeIn var(--duration-slow) ease-out forwards
+        var(--duration-normal);
 }
 
 .welcomeSection {

@@ -13,7 +13,8 @@
 
 .projectItem {
     opacity: 0;
-    animation: slideIn var(--duration-medium) var(--default-cubic-bezier) forwards;
+    animation: slideIn var(--duration-medium) var(--default-cubic-bezier)
+        forwards;
     animation-delay: calc(var(--i) * var(--duration-fast));
     border: var(--border-width-thin) solid var(--color-border);
     border-radius: var(--radius-sm);
@@ -47,7 +48,9 @@
     white-space: nowrap;
 }
 
-.stars, .meta, .fork {
+.stars,
+.meta,
+.fork {
     display: flex;
     align-items: center;
 }
@@ -92,7 +95,7 @@
 
 .noDescription {
     font-style: italic;
-    opacity: .6;
+    opacity: 0.6;
 }
 
 @keyframes slideIn {
@@ -109,5 +112,5 @@
 }
 
 .projectList:has(.projectItem:hover) .projectItem:not(:hover) .projectCard {
-    opacity: .727;
+    opacity: 0.727;
 }

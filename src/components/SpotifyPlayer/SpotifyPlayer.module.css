@@ -40,7 +40,8 @@
     font-size: var(--font-size-sm);
 }
 
-.progressBar, .progressBar::-webkit-progress-bar {
+.progressBar,
+.progressBar::-webkit-progress-bar {
     appearance: none;
     width: 100%;
     height: var(--space-sm);
@@ -49,7 +50,8 @@
     border-radius: var(--length-md);
 }
 
-.progressBar::-webkit-progress-value, .progressBar::-moz-progress-bar {
+.progressBar::-webkit-progress-value,
+.progressBar::-moz-progress-bar {
     background-color: var(--color-accent-success);
     border-radius: var(--length-md);
 }

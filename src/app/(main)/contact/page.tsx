@@ -20,7 +20,11 @@ export default function Contact() {
 
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-    const handleCopy = async (e: React.MouseEvent<HTMLButtonElement>, textToCopy: string, index: number) => {
+    const handleCopy = async (
+        e: React.MouseEvent<HTMLButtonElement>,
+        textToCopy: string,
+        index: number
+    ) => {
         e.preventDefault()
 
         try {
@@ -49,8 +53,13 @@ export default function Contact() {
         {
             icon: <Email className={clsx(styles.icon, styles.emailIcon)} />,
             text: 'For professional inquiries',
-            label: <>michaelcalb.dev<span className={styles.mailDomain}>@gmail.com</span></>,
-            copyText: 'michaelcalb.dev@gmail.com' ,
+            label: (
+                <>
+                    michaelcalb.dev
+                    <span className={styles.mailDomain}>@gmail.com</span>
+                </>
+            ),
+            copyText: 'michaelcalb.dev@gmail.com',
             href: 'mailto:michaelcalb.dev@gmail.com'
         },
         {
@@ -84,19 +93,48 @@ export default function Contact() {
                     {contactItems.map((item, index) => {
                         const isCopied = copiedIndex === index
                         return (
-                            <div key={index} className={styles.contactItem} style={{ '--i': index } as React.CSSProperties}>
-                                <p className={styles.contactText}>{item.text}</p>
+                            <div
+                                key={index}
+                                className={styles.contactItem}
+                                style={{ '--i': index } as React.CSSProperties}
+                            >
+                                <p className={styles.contactText}>
+                                    {item.text}
+                                </p>
                                 <div className={styles.contactActions}>
-                                    <Link className={styles.contactLink} href={item.href} target='_blank' rel='noopener noreferrer'>
+                                    <Link
+                                        className={styles.contactLink}
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         {item.icon}
-                                    <span className={styles.label}>{item.label}</span>
+                                        <span className={styles.label}>
+                                            {item.label}
+                                        </span>
                                     </Link>
-                                    <button onClick={(e) => handleCopy(e, item.copyText, index)} className={styles.copyBtn} title='Copy to clipboard'>
-                                        <Copy className={clsx(styles.btnIcon, isCopied && styles.inactiveIcon)}/>
-                                        <Check className={clsx(styles.btnIcon, !isCopied && styles.inactiveIcon)}/>
+                                    <button
+                                        onClick={(e) =>
+                                            handleCopy(e, item.copyText, index)
+                                        }
+                                        className={styles.copyBtn}
+                                        title="Copy to clipboard"
+                                    >
+                                        <Copy
+                                            className={clsx(
+                                                styles.btnIcon,
+                                                isCopied && styles.inactiveIcon
+                                            )}
+                                        />
+                                        <Check
+                                            className={clsx(
+                                                styles.btnIcon,
+                                                !isCopied && styles.inactiveIcon
+                                            )}
+                                        />
                                     </button>
                                 </div>
-                            </div> 
+                            </div>
                         )
                     })}
                 </section>
@@ -104,7 +142,16 @@ export default function Contact() {
                     <p className={styles.socialText}>You can also find me on</p>
                     <div className={styles.socialCardGroup}>
                         {socialItems.map((item, index) => (
-                            <Link key={index} className={styles.socialLink} style={{ '--i': index } as React.CSSProperties} href={item.href} target='_blank' rel='noopener noreferrer'>{item.icon}</Link>
+                            <Link
+                                key={index}
+                                className={styles.socialLink}
+                                style={{ '--i': index } as React.CSSProperties}
+                                href={item.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {item.icon}
+                            </Link>
                         ))}
                     </div>
                 </section>

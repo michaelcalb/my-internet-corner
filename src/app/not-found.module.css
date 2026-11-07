@@ -30,9 +30,10 @@
     height: auto;
 }
 
-.imgCaption, .link {
+.imgCaption,
+.link {
     text-align: end;
-    font-size: .75rem;
+    font-size: 0.75rem;
     color: var(--color-text-muted);
     text-decoration: none;
 }

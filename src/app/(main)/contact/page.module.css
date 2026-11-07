@@ -22,7 +22,8 @@
     gap: var(--space-sm);
     opacity: 0;
     transform: translateX(-100%);
-    animation: slideInFromLeft var(--duration-slow) var(--default-cubic-bezier) forwards;
+    animation: slideInFromLeft var(--duration-slow) var(--default-cubic-bezier)
+        forwards;
     animation-delay: calc(var(--i) * var(--duration-fast));
 }
 
@@ -53,7 +54,7 @@
 
 .mailDomain {
     font-style: italic;
-    opacity: .5;
+    opacity: 0.5;
     font-weight: normal;
 }
 
@@ -122,7 +123,8 @@
     border-top: var(--border-width-thin) solid var(--color-border);
     opacity: 0;
     transform: translateY(200%);
-    animation: slideInFromBottom var(--duration-slow) var(--default-cubic-bezier) var(--duration-medium) forwards;
+    animation: slideInFromBottom var(--duration-slow)
+        var(--default-cubic-bezier) var(--duration-medium) forwards;
 }
 
 .socialText {
@@ -148,12 +150,14 @@
     color: var(--color-text-link);
     background-color: var(--color-neutral-0);
     padding: var(--space-sm);
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     opacity: 0;
     scale: 0;
     transition: var(--default-transition);
     animation: popIn var(--duration-medium) var(--default-cubic-bezier) forwards;
-    animation-delay: calc(var(--i) * var(--duration-fast) + var(--duration-slow));
+    animation-delay: calc(
+        var(--i) * var(--duration-fast) + var(--duration-slow)
+    );
 }
 
 .cardIcon {

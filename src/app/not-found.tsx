@@ -12,9 +12,21 @@ export default function NotFound() {
                 {/*
                     im using a standard img tag to avoid Next.js Image optimization caching a random result, and to prevent hydration mismatches between the server and client.
                 */}
-                <img src='https://cataas.com/cat' alt='random cat' className={styles.img} />
+                <img
+                    src="https://cataas.com/cat"
+                    alt="random cat"
+                    className={styles.img}
+                />
                 <figcaption className={styles.imgCaption}>
-                    Image provided by <Link href='https://cataas.com/' target='_blank' rel='noopener noreferrer' className={styles.link}>Cataas</Link>
+                    Image provided by{' '}
+                    <Link
+                        href="https://cataas.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.link}
+                    >
+                        Cataas
+                    </Link>
                 </figcaption>
             </figure>
         </main>

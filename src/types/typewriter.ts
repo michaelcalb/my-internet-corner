@@ -1,14 +1,14 @@
 export type TypewriterRule =
-	| {
-			write: string
-	  }
-	| {
-			delete: number
-	  }
+    | {
+          write: string
+      }
+    | {
+          delete: number
+      }
 
 export interface Typewriter {
-	rules: TypewriterRule[]
-	delay?: number
-	cooldown?: number
-	loopFrom?: number
+    rules: TypewriterRule[]
+    delay?: number
+    cooldown?: number
+    loopFrom?: number
 }
