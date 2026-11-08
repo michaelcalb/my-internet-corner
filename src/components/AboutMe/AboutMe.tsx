@@ -1,8 +1,7 @@
 'use client'
 
 import styles from './AboutMe.module.css'
-import type { TypewriterRule } from '@/types/typewriter'
-import useTypewriter from '@/hooks/useTypewriter'
+import { typewriter, type TypewriterRule } from 'yet-another-typewriter'
 import Window from '../Window/Window'
 import { useEffect, useState } from 'react'
 import { useTimezoneDiff } from '@/hooks/useTimezoneDiff'
@@ -36,7 +35,12 @@ function getAge() {
 }
 
 export default function AboutMe() {
-    const name = useTypewriter({ rules: typewriterRules, loopFrom: 1 })
+    const [name, setName] = useState('')
+
+    useEffect(
+        () => typewriter({ rules: typewriterRules, loopFrom: 1 }, setName),
+        []
+    )
     const [age, setAge] = useState<number | null>(null)
     const timezone = useTimezoneDiff()
 
