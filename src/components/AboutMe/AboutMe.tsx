@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './AboutMe.module.css'
-import { typewriter, type TypewriterRule } from 'yet-another-typewriter'
+import { typewriter, type TypewriterRule } from 'yats-typewriter'
 import Window from '../Window/Window'
 import { useEffect, useState } from 'react'
 import { useTimezoneDiff } from '@/hooks/useTimezoneDiff'

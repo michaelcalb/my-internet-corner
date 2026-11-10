@@ -32,7 +32,7 @@ importers:
       use-lanyard:
         specifier: ^1.7.0
         version: 1.7.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      yet-another-typewriter:
+      yats-typewriter:
         specifier: ^0.1.0
         version: 0.1.0
     devDependencies:
@@ -2531,8 +2531,8 @@ packages:
   yallist@3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
 
-  yet-another-typewriter@0.1.0:
-    resolution: {integrity: sha512-tnjm8XrN1vYE9FLD1Bfe7/HkWUA307lsy4a32USU1pvsY5ZmJ7ty3pQrCdhyOPKWhZeLgiR6wHL0ubTQWhB+ww==}
+  yats-typewriter@0.1.0:
+    resolution: {integrity: sha512-+MYjWHF2JP5ML+8p7NuoMZpmTZW/rMaQXD7LSk78jxBHEuwJUyjXvOdekWqGKUeLgPmUxwVnbNArW76jb1s0oQ==}
 
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
@@ -5445,7 +5445,7 @@ snapshots:
 
   yallist@3.1.1: {}
 
-  yet-another-typewriter@0.1.0: {}
+  yats-typewriter@0.1.0: {}
 
   yocto-queue@0.1.0: {}
 
